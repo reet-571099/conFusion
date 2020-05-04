@@ -54,6 +54,7 @@ export class MenuComponent implements OnInit {
   dishes =DISHES;
 
   selectedDish = DISHES[0];
+  date : string = new Date().toISOString();
   constructor() { }
 
   ngOnInit(): void {
