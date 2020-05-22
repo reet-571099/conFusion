@@ -10,6 +10,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card'
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
 import 'hammerjs';
 import { from } from 'rxjs';
 import { MenuComponent } from './menu/menu.component';
@@ -47,14 +51,18 @@ import { LoginComponent } from './login/login.component';
     MatGridListModule,
     MatDialogModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
   providers: [
     DishService,
     PromotionService,
     LeaderService
   ],
-  
+
   entryComponents: [
     LoginComponent
 ],
