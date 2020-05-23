@@ -24,4 +24,7 @@ export class LeaderService {
      return  of(LEADERS.filter((leader) => leader.featured)[0]).pipe(delay(2000));
      
   }
+  getDishIds(): Observable<string[] | any> {
+    return of(LEADERS.map(leader => leader.id ));
+}
 }

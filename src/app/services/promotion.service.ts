@@ -26,5 +26,7 @@ export class PromotionService {
      return  of(PROMOTIONS.filter((promo) => promo.featured)[0]).pipe(delay(2000));
      
   }
-
+  getDishIds(): Observable<string[] | any> {
+    return of(PROMOTIONS.map(promo => promo.id ));
+}
 }
