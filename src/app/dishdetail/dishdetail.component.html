@@ -35,7 +35,7 @@
     <mat-card-title>
         <h3>COMMENTS</h3>
         <div class="input-row" fxLayout="row"  fxLayoutGap="20px"  >
-            <mat-list>
+            <mat-list *ngIf="dish">
                 <mat-list-item *ngFor="let item of dish.comments" style="color:#000000">
                     <p mat-line><b>{{item.comment}}</b></p>
                     <p mat-line><b> {{item.rating}} stars </b></p>
@@ -47,6 +47,9 @@
     </mat-card-title>
     
   </div>  
+  <div fxFlex [hidden]="dish">
+    <mat-spinner></mat-spinner><h4>Loading .... Please Wait !</h4>
+  </div>
 </div> 
  
 <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>

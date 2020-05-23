@@ -57,14 +57,17 @@
   <div fxFlex>
     <h2>Corporate Leadership</h2>
     <div class="input-row" fxLayout="row"  fxLayoutGap="20px"  >
-        <mat-list>
+        <mat-list *ngIf="leaders">
             <mat-list-item *ngFor="let leader of leaders" [routerLink]="['/about',leader.id]" style="color:#000000">
-                <p mat-line><img src= {{leader.image}} class="rounded_circle"></p>
+                <img mat-list-avatar src= {{leader.image}} class="rounded_circle">
                 <p mat-line><b> {{leader.name}} {{leader.abbr}} </b></p>
                 <p mat-line><b> {{leader.designation}}</b></p>
                 <p mat-line><b> {{leader.description}}</b></p>
             </mat-list-item>
           </mat-list>
+          <div fxFlex [hidden]="leaders">
+            <mat-spinner></mat-spinner><h4>Loading .... Please Wait !</h4>
+          </div>
     </div>
   </div>
 </div>
