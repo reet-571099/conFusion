@@ -3,6 +3,7 @@ import { Promotion } from '../shared/promotion';
 import { PROMOTIONS } from '../shared/promotions';
 import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
