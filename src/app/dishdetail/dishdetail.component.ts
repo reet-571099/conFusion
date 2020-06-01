@@ -27,7 +27,8 @@ export class DishdetailComponent implements OnInit {
   next:string
   comment: Comment;
   commentForm: FormGroup;
-  // errMess: string;
+
+
   formErrors = {
     'author': '',
     'rating': '5',
@@ -80,10 +81,15 @@ export class DishdetailComponent implements OnInit {
     this.comment = this.commentForm.value;
     this.comment.date = new Date().toISOString();
     console.log(this.comment);
-    this.dishcopy.comments.push(this.comment); // push new comment to comment array
+    // this.dishcopy.comments.push(this.comment); // push new comment to comment array
     // this.dishcopy.save() // save new dish object to server side
       // .subscribe(dish => { this.dish = dish; console.log(this.dish); }); // reflect changes on client side
-   
+      this.dishcopy.comments.push(this.comment);
+      this.dishservice.putDish(this.dishcopy)
+        .subscribe(dish => {
+          this.dish = dish; this.dishcopy = dish;
+        },
+        errmess => { this.dish = null; this.dishcopy = null; this.errMess = <any>errmess; });
 
     
     // reset comment form
