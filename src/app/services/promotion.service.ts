@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Promotion } from '../shared/promotion';
 import { PROMOTIONS } from '../shared/promotions';
-import { of, Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 

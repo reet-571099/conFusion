@@ -86,11 +86,13 @@
       </mat-card>
     </div>
 
-    <div [hidden]="dish">
-      <mat-spinner></mat-spinner>
-      <h4>Loading . . . Please Wait</h4>
-    </div>
-  </div>
+      <div [hidden]="dish|| errMess">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
+      <div *ngIf="errMess">
+          <h2>Error</h2>
+          <h4>{{errMess}}</h4>
+      </div>
 </div>
  
 <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>

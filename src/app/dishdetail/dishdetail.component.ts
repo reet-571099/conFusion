@@ -20,6 +20,7 @@ import { visibility } from '../animations/app.animations';
 export class DishdetailComponent implements OnInit {
 
   dish: Dish;
+  errMess: string;
   dishIds: string[];
   dishcopy: Dish;
   prev: string;
@@ -51,7 +52,7 @@ export class DishdetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder,
-     @Inject('baseURL') private baseURL) { }
+     @Inject('BaseURL') private BaseURL) { }
 
     ngOnInit() {
       this.createForm();
@@ -60,8 +61,9 @@ export class DishdetailComponent implements OnInit {
         this.visibility = 'hidden';
         return this.dishservice.getDish(params['id']);
       }))
-            .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); this.visibility = 'shown';this.dishcopy = dish;});
-     
+            .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); this.visibility = 'shown';this.dishcopy = dish;},
+              errmess => this.errMess = <any>errmess);
+           
     }
     createForm(){
       this.commentForm = this.fb.group({

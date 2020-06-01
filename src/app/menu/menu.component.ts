@@ -10,15 +10,17 @@ export class MenuComponent implements OnInit {
   
   date : string = new Date().toISOString();
   dishes: Dish[];
+  errMess: string;
 
   
 
   constructor(private dishService: DishService,
-    @Inject('baseURL') private baseURL) { }
-    
+    @Inject('BaseURL') private BaseURL) { }
+
   ngOnInit() {
     this.dishService.getDishes()
-    .subscribe((dishes) => this.dishes =dishes);
+    .subscribe(dishes => this.dishes = dishes,
+      errmess => this.errMess = <any>errmess);
   }
 
 }

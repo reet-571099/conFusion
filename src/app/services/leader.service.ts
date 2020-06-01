@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Leader } from '../shared/leader';
 import { LEADERS } from '../shared/leaders';
-import { of, Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
 @Injectable({
