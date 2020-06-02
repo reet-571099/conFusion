@@ -57,7 +57,7 @@
   <div fxFlex>
     <h2>Corporate Leadership</h2>
     <div class="input-row" fxLayout="row"  fxLayoutGap="20px"  >
-        <mat-list *ngIf="leaders">
+        <mat-list *ngIf="leaders" [@expand]>
             <mat-list-item *ngFor="let leader of leaders" [routerLink]="['/about',leader.id]" style="color:#000000">
                 <img mat-list-avatar src= {{leader.image}} class="rounded_circle">
                 <p mat-line><b> {{leader.name}} {{leader.abbr}} </b></p>
